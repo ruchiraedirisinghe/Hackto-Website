@@ -1,0 +1,43 @@
+<html>
+	<head><title>Exam</title></head>
+	<body>
+		<script>			
+         var logid1=document.getElementById("logid");
+         var pwd1=document.getElementById("pwd");
+
+
+         function validation(){
+
+         	if(logid.value==""){
+         		alert("Please enter your ID");
+         	}
+         	if(pwd.value==""){
+         		alert("Please enter your password");
+         	}
+         }
+
+
+		</script>
+		<form action="">
+			<table>
+				<tr>
+					<td>Login ID:</td>
+					<td><input type="text" placeholder="1234" id="logid">
+					</td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td>
+						<input type="password" placeholder="W3467" id="pwd">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="submit" onclick="validation()" value="submit">
+					</td>
+				</tr>
+			</table>
+		</form>
+		
+	</body>
+</html>
