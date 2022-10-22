@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: cornflowerblue;
+            padding: 0 10px;
+        }
+        .wrapper{
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            margin: 50px auto;
+            padding: 30px;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+        }
+        .text{
+            color: limegreen;
+        }
+        .wrapper .title{
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: cadetblue;
+            font-family: 'Bebas Neue', cursive;
+            text-align: center;
+        }
+        .wrapper .form{
+            width: 100%;
+        }
+        .wrapper .form .form_control{
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .wrapper .form .form_control label{
+            width: 200px;
+            color: #757575;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        .wrapper .form .form_control .input_field {
+            width: 100%;
+            outline: none;
+            border: 1px solid #d5dbd9;
+            font-size: 15px;
+            padding: 8px 10px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .wrapper .form .form_control .input_select{
+            position: relative;
+            width: 100%;
+            height: 37px;
+        }
+        .wrapper .form .form_control .input_select select{
+            -webkit-appearance: none;
+            appearance: none;
+            border: 1px solid #d5dbd9;
+            width: 100%;
+            height: 100%;
+            padding: 8px 10px;
+            border-radius: 3px;
+            outline: none;
+        }
+.wrapper .form .form_control .input_select:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 8px solid;
+    border-color: #d5dbd9 transparent transparent transparent;
+    pointer-events: none;
+    margin: 15px 10px 0 0 ;
+}
+.wrapper .form .form_control .input_field:focus,
+.wrapper .form .form_control .input_select:focus{
+    border: 1px solid cadetblue;
+}
+.wrapper .form .form_control p{
+    font-size: 14px;
+    color: #757575;
+}
+        .wrapper .form .form_control .check{
+            width: 15px;
+            height: 15px;
+            position: relative;
+            display: block;
+            cursor: pointer;
+        }
+        .wrapper .form .form_control .check input[type="checkbox"]
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .wrapper .form .form_control .btn-custom {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 15px;
+            border: 0;
+            background: cornflowerblue;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            outline: none;
+        }
+    </style>
+    <script>function validate(){
+    let fullname=document.myform.fName.value;
+    let address=document.myform.address.value;
+    let email=document.myform.email.value;
+    let emailpattern=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)/;
+    let phoneNo=document.myform.phone.value;
+    let nic=document.myform.nic.value;
+    let nicpattern=/[0-9]{9}[x|X|v|V]$/;
+    let degree=document.myform.degree.value;
+    let gender=document.myform.gender.value;
+    let password=document.myform.password.value;
+    let passwordpattern=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    let repassword=document.myform.rPassword.value;
+    let agree=document.myform.agree.value;
+
+
+
+    if(fullname=="" ){
+        alert("Name cannot be empty");
+    }
+
+    if(address.length<10){
+        alert("Address should be more than 10 characterst");
+    }
+        
+    if(!email.match(emailpattern)){
+        alert("Enter a valid email address");
+    }
+
+    if(phoneNo.length!=10 && isNaN(phone)){
+        alert("Enter 10 nubmers for your phone Number");
+    }
+
+    if(nic.match(nicpattern || (nic!==12 && !isNaN(nic)))){
+
+    } 
+
+    else{
+        alert("Please enter your nic Number");
+    }
+    if(degree=="Select Your Degree"){
+        alert("Please Enter your degree");
+    }
+
+    if(gender==""){
+        alert("Please Enter your gender");
+    }
+
+    if(!password){
+        alert("Invalid Password");
+    }    
+    if(password==repassword){
+        alert("Password doesn't match");
+        }
+    if(!this.form1.agree.checked){
+        alert("You should agree with our terms and conditions");
+    }
+    
+    
+
+}
+</script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="title">
+        <h3><span class="text">NSBM</span> Student Registration Form</h3>
+        <hr>
+    </div>
+    <div class="form">
+        <form name="myform">
+            <div class="form_control">
+                <label>Full Name</label>
+                <input type="text" name="fName" id="fName" class="input_field">
+            </div>
+            <div class="form_control">
+                <label>Address</label>
+                <input type="text" name="address" id="address" class="input_field">
+            </div>
+            <div class="form_control">
+                <label>Email</label>
+                <input type="text" name="email" id="email" class="input_field">
+            </div>
+            <div class="form_control">
+                <label>Phone Number</label>
+                <input type="text" name="phone" id="phone" class="input_field">
+            </div>
+            <div class="form_control">
+                <label>NIC</label>
+                <input type="text" name="nic" id="nic" class="input_field">
+            </div>
+            <div class="form_control">
+                <label>Degree Programme</label>
+                <div class="input_select">
+                    <select id="degree" name="degree">
+                        <option value="">Select Your Degree</option>
+                        <option value="se">Software Engineering</option>
+                        <option value="cn">Computer Networks</option>
+                        <option value="cs">Computer Security</option>
+                        <option value="wm">Application Developments</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form_control">
+                <label>Gender</label>
+             <input type="radio" name="gender" id="gender" value="male" class="input_field">Male    <input type="radio" name="gender" id="gender" value="female" class="input_field">Female
+            </div>
+            <div class="form_control">
+                <label>Password</label>
+                <input type="password" name="password" id="password" class="input_field">
+            </div>
+            <div class="form_control">
+                <label>Retype Password</label>
+                <input type="password" name="rPassword" id="rPassword" class="input_field">
+            </div>
+            <div class="form_control terms">
+                <label class="check">
+                    <input type="checkbox" name="agree" id="agree">
+                    <span class="check"></span>
+                </label>
+                <p>Agreed to terms and conditions</p>
+            </div>
+            <div class="form_control">
+                <button type="button" class="btn-custom" onclick="validate()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
